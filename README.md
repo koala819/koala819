@@ -41,7 +41,7 @@ C'est ainsi que durant ma formation j'ai travaillé sur deux projets personnels 
    
 2. Cumuler les aides
 
-   Un ami m'a demandé de lui réaliser un questionnaire pour aider les personnes à connaître les aides qu'ils peuvent prétendre pour rénover leur habitation. Après avoir répondu à toutes les questions, les réponses sont envoyés à un google Doc afin que mon ami puisse les exploiter et contacter chaque personne ayant répondu au questionnaire. C'est un projet complet et fonctionnel où j'ai souscrit à un nom de domaine et où je me suis occupé de trouver un hébergeur. http://cumulerlesaides.fr/
+   Un ami m'a demandé de lui réaliser un questionnaire pour aider les personnes à connaître les aides qu'ils peuvent prétendre pour rénover leur habitation. Après avoir répondu à toutes les questions, les réponses sont envoyés à un google Doc afin que mon ami puisse les exploiter et contacter chaque personne ayant répondu au questionnaire. C'est un projet complet et fonctionnel où j'ai souscrit à un nom de domaine et où je me suis occupé de trouver un hébergeur. [Venez l'essayer](http://cumulerlesaides.fr)
 </details>
 
 Par la suite j'ai travaillé à réaliser mon portfolio avec Tailwind. J'ai également trouvé et pris le nom de domaine dix31 pour <b>D</b>éveloppeur <b>I</b>ndépendant <b>X</b>avier :wink:. J'ai souscrit à une offre d'hébergement avec le fournisseur français O2switch. A découvrir [ici](http://dix31.org)<br>
