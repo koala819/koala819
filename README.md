@@ -4,33 +4,21 @@
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=koala819" alt="koala819" /> </p>
 
 
-My name is Xavier, I am 40 years old. I am a technology enthusiast and a web developer. I like to explore and discover new domains.<br>
+My name is Xavier. I am a technology enthusiast and a web developer. I like to explore and discover new domains.<br>
 I am training to become a **full stack developer** with a preference for the backend.<br><br>
 ## Skills :
-<code><img height="50" src="https://img.icons8.com/color/144/000000/java-coffee-cup-logo.png"/></code>
 <code><img height="50" src="https://img.icons8.com/color/2x/javascript.png" alt="Javascript"></code>
-<code><img height="50" src="https://www.flaticon.com/svg/static/icons/svg/919/919827.svg" alt="HTML5"></code>
-<code><img height="50" src="https://www.flaticon.com/svg/static/icons/svg/919/919826.svg" alt="CSS3"></code>
-<code><img height="50" src="https://www.flaticon.com/svg/static/icons/svg/919/919836.svg" alt="MySQL"></code>
-
+<code><img height="50" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/langfr-1280px-React-icon.svg.png" alt="React"></code>
+<code><img height="50" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/512px-Typescript_logo_2020.svg.png" alt="TypeScript"></code>
 <code><img height="50" src="https://img.icons8.com/color/96/000000/linux.png" alt="Linux"></code>
-<code><img height="50" src="https://refactoringui.nyc3.cdn.digitaloceanspaces.com/tailwind-logo.svg" alt="Tailwind"></code>
+<code><img height="50" src="https://tailwindcss.com/_next/static/media/tailwindcss-logotype.128b6e12eb85d013bc9f80a917f57efe.svg" alt="Tailwind"></code>
 
 
 
 ## My background
 I started programming with my Texas Instrument calculator in high school in 1997.
-Fascinated by this universe I followed the SéRéCom training by obtaining my DUT in 2004. 
 
-During my study project I created a website for renting lodgings that I maintained until 2015.
-Today it is another provider who takes care of it, but you can see what it looked like with [this link](https://web.archive.org/web/20071129201108/http://www.gitesdethouy.com/index2.html)
-
-From 2004 to 2020 I chose to bring my help to users by being a computer technician then a telecom technician. 
-I wanted to find this passion for the code which animated me when I was younger, I then followed a training of **Java Developer Designer** from April to September 2020 and I made an internship until November 2020. This training allowed me to update my skills and to confirm that my passion for code was still there. 
-
-Moreover, at the end of my training I realized that I preferred web technologies to Java. For me, a developer is not limited to one language, and must know how to program in Python as well as in PHP. What is important is to have an algorithmic logic and then knowing how to use this or that language becomes only a detail.
-
-So during my training I worked on two personal projects outside my training.
+Self-taught and passionate about the web. What interests me the most is the possibility to collaborate with other passionate developers and to meet specific needs in terms of : user experience, navigation, performance and security.
 
 <details>
   <summary>See the details of the projects</summary>
