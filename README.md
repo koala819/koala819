@@ -7,7 +7,7 @@ img align="right" alt="GIF" src="https://raw.githubusercontent.com/rahul-jha98/r
 Hey 👋, I'm Xavier !
 
 ## 💬 Ask me about
-A JavaScript developer from France. I love building applications & discussing new product ideas. Reach out to me on [linkedin](https://www.linkedin.com/in/xavier-genolhac-79a98390) if you'd like to talk ✌️
+A JavaScript developer from France. I love building applications & discussing new product ideas. Reach out to me on [linkedin](https://www.linkedin.com/in/xavier%F0%9F%92%BB-genolhac-79a98390/) if you'd like to talk ✌️
 <br><br>
 
 # 💻 Tech Stack:
@@ -21,7 +21,7 @@ A JavaScript developer from France. I love building applications & discussing ne
 <br><br>
 
 # <img src="https://github.com/tusharnankani/tusharnankani/blob/master/Assets/Handshake.gif" height="32px"> Keep in touch:
-[<img align="center" src="https://github.com/tusharnankani/tusharnankani/blob/master/Assets/Linkedin.svg" alt="Linkedin Logo" width="32">](https://www.linkedin.com/in/xavier-genolhac-79a98390)
+[<img align="center" src="https://github.com/tusharnankani/tusharnankani/blob/master/Assets/Linkedin.svg" alt="Linkedin Logo" width="32">](https://www.linkedin.com/in/xavier%F0%9F%92%BB-genolhac-79a98390)
 <br><br>
 
 
