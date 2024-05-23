@@ -1,4 +1,18 @@
+# @koala818
+
+Software engineer at @FreeAndFun 👋
+
+---
+
+<table>
+<tr>
+<td valign="top" width="50%">
+<img src="github-metrics.svg" alt="Metric" />
+</td>
+<td valign="top" width="50%">
+
 ## Latest blog posts
+
 
 <!-- blog start -->
 
@@ -6,4 +20,6 @@
 
 Read more on [dix31.com](https://dix31.com/blog)
 
-<img src="/github-metrics.svg" alt="Metrics" width="100%">
+</td>
+</tr>
+</table>
