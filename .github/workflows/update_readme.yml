@@ -19,7 +19,7 @@ jobs:
         python -m pip install requests feedparser
     - name: Update README
       run: |-
-        python your_script.py  # Assurez-vous que votre script est nommé correctement
+        python feed.py  # Assurez-vous que votre script est nommé correctement
     - name: Commit and push if changed
       run: |-
         git diff
