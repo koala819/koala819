@@ -11,6 +11,7 @@ DEFAULT_DATE_FORMAT = "%Y-%m-%d"
 
 root = pathlib.Path(__file__).parent.resolve()
 
+
 def fetch_feed(url: str) -> list[dict[str, str]]:
     try:
         response = requests.get(url)
@@ -35,6 +36,7 @@ def fetch_feed(url: str) -> list[dict[str, str]]:
         for entry in feed.entries[:DEFAULT_N]
     ]
 
+
 def format_feed_entry(entry: dict[str, str]) -> str:
     title = entry.get("title", "No Title")
     link = entry.get("url", "")
@@ -42,11 +44,13 @@ def format_feed_entry(entry: dict[str, str]) -> str:
 
     return f"[{title}]({link}) - {date}"
 
+
 def format_entry_date(entry: Any, date_format: str = DEFAULT_DATE_FORMAT) -> str:
     if hasattr(entry, "published_parsed"):
         published_time = datetime(*entry.published_parsed[:6])
         return published_time.strftime(date_format)
     return ""
+
 
 def replace_chunk(content, marker, chunk, inline=False):
     pattern = f"<!-- {marker} start -->.*<!-- {marker} end -->"
