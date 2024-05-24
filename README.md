@@ -1,6 +1,6 @@
 # @koala818
 
-Software engineer at @FreeAndFun 👋
+Software developer at @FreeAndFun 👋
 
 ---
 
