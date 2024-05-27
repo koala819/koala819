@@ -27,4 +27,5 @@ jobs:
         git config --global user.name "${{ secrets.USER_NAME }}"
         git add -A
         git commit -m "chore: update blog posts" || exit 0
+        git pull --rebase
         git push
