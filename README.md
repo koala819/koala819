@@ -15,11 +15,11 @@ Software developer at @FreeAndFun 👋
 
 
 <!-- blog start -->
-[Le casse du siècle sur Ethereum – 2 frères dévalisent la blockchain en 12 secondes chrono !](https://dix31.com/blog/le-casse-du-siecle-sur-ethereum-2-freres-devalisent-la-blockchain-en-12-secondes-chrono) - 2024-06-12
+[DuckDuckGo, le meilleur métachatbot gratuit d’IA !](https://dix31.com/blog/duckduckgo-chatbot-gratuit-d-ia) - 2024-07-04
 
-[Maximiser le SEO avec des Images](https://dix31.com/blog/l-importance-cruciale-des-images-et-leurs-attributs) - 2024-06-10
+[Julian Assange est libre](https://dix31.com/blog/julian-assange-est-libre) - 2024-06-25
 
-[Gus Fring vs The World](https://dix31.com/blog/gus-fring-vs-the-world) - 2024-06-04
+[Boostez Votre Site Statique avec Jampack 🚀](https://dix31.com/blog/boostez-votre-site-statique-avec-jampack) - 2024-06-21
 <!-- blog end -->
 
 Read more on [dix31.com](https://dix31.com/blog)
