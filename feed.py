@@ -11,8 +11,12 @@ DEFAULT_DATE_FORMAT = "%Y-%m-%d"
 root = pathlib.Path(__file__).parent.resolve()
 
 def fetch_feed(url: str) -> list[dict[str, str]]:
+    # Add a cache-busting parameter to the URL
+    cache_buster = datetime.now().timestamp()
+    url_with_cache_buster = f"{url}?cache_buster={cache_buster}"
+    
     try:
-        response = requests.get(url)
+        response = requests.get(url_with_cache_buster)
         response.raise_for_status()
         feed = feedparser.parse(response.content)
         if not feed.entries:
