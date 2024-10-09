@@ -8,7 +8,6 @@ from datetime import datetime
 
 DEFAULT_N = 5
 DEFAULT_DATE_FORMAT = "%Y-%m-%d"
-
 root = pathlib.Path(__file__).parent.resolve()
 
 def fetch_feed(url: str) -> list[dict[str, str]]:
@@ -31,6 +30,7 @@ def fetch_feed(url: str) -> list[dict[str, str]]:
             "title": entry.title,
             "url": entry.link,
             "date": format_entry_date(entry),
+            "summary": entry.summary,
         }
         for entry in feed.entries[:DEFAULT_N]
     ]
@@ -39,12 +39,12 @@ def format_feed_entry(entry: dict[str, str]) -> str:
     title = entry.get("title", "No Title")
     link = entry.get("url", "")
     date = entry.get("date", "")
-
-    return f"[{title}]({link}) - {date}"
+    summary = entry.get("summary", "")
+    return f"[{title}]({link}) - {date}\n{summary}"
 
 def format_entry_date(entry: Any, date_format: str = DEFAULT_DATE_FORMAT) -> str:
-    if hasattr(entry, "published_parsed"):
-        published_time = datetime(*entry.published_parsed[:6])
+    if hasattr(entry, "updated_parsed"):
+        published_time = datetime(*entry.updated_parsed[:6])
         return published_time.strftime(date_format)
     return ""
 
@@ -56,7 +56,6 @@ def replace_chunk(content, marker, chunk, inline=False):
         chunk = f"\n{chunk}\n"
         
     return r.sub(f"<!-- {marker} start -->{chunk}<!-- {marker} end -->", content)
-
 
 if __name__ == "__main__":
     readme = root / "README.md"
