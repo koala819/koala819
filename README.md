@@ -15,7 +15,8 @@ Software developer at @FreeAndFun 👋
 
 
 <!-- blog start -->
-
+[:](:) - :
+:
 <!-- blog end -->
 
 Read more on [dix31.com](https://dix31.com/blog)
