@@ -49,7 +49,7 @@ def fetch_feed(url: str) -> list[dict[str, str]]:
                 "title": entry.title if hasattr(entry, "title") else "No title",
                 "url": entry.link if hasattr(entry, "link") else "",
                 "date": format_entry_date(entry),
-                "summary": entry.summary if hasattr(entry, "summary") else ""
+                "summary": entry.description if hasattr(entry, "description") else ""
             }
             result.append(item)
             
@@ -125,6 +125,12 @@ def parse_rss_manually(xml_content: str) -> list[dict[str, str]]:
                     date = dt.strftime(DEFAULT_DATE_FORMAT)
                 except Exception as e:
                     logging.warning(f"Could not parse date: {date_element.text} - {e}")
+                    try:
+                        # Try alternative format
+                        dt = datetime.strptime(date_str, "%a, %d %b %Y %H:%M:%S GMT")
+                        date = dt.strftime(DEFAULT_DATE_FORMAT)
+                    except:
+                        pass
             
             # For description/summary
             summary = ""
@@ -179,7 +185,12 @@ def format_entry_date(entry: Any, date_format: str = DEFAULT_DATE_FORMAT) -> str
                 dt = datetime.strptime(date_str, "%a, %d %b %Y %H:%M:%S %Z")
                 return dt.strftime(date_format)
             except:
-                pass
+                try:
+                    # Try alternative format
+                    dt = datetime.strptime(date_str, "%a, %d %b %Y %H:%M:%S GMT")
+                    return dt.strftime(date_format)
+                except:
+                    pass
     
     return ""
 
@@ -221,7 +232,7 @@ if __name__ == "__main__":
     # Get README path
     readme = root / "README.md"
     
-    # RSS feed URL - update this to your new RSS endpoint
+    # RSS feed URL - Utiliser la nouvelle URL
     url = "https://www.dix31.com/api/rss"
     
     try:
