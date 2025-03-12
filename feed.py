@@ -5,6 +5,7 @@ import requests
 import re
 from datetime import datetime
 import sys
+import json
 
 DEFAULT_N = 5
 DEFAULT_DATE_FORMAT = "%Y-%m-%d"
@@ -24,61 +25,47 @@ def fetch_feed(url: str) -> list[dict[str, str]]:
         response = requests.get(url_with_cache_buster)
         response.raise_for_status()
         
-        logging.info(f"Statut de la réponse: {response.status_code}")
-        logging.info(f"Taille de la réponse: {len(response.text)} caractères")
+        # Parse JSON response
+        articles = response.json()
+        logging.info(f"Nombre d'articles récupérés: {len(articles)}")
         
-        # Traiter le contenu comme du texte brut, car ce n'est pas un flux RSS standard
-        content = response.text
-        
-        # Parser le contenu texte personnalisé
-        articles = []
-        lines = content.strip().split('\n')
-        
-        logging.info(f"Nombre de lignes dans la réponse: {len(lines)}")
-        
-        # Première ligne = info du blog, on la saute
-        for i in range(1, len(lines), 2):
-            if i + 1 < len(lines):
-                # Ligne impaire: titre, date et URL
-                title_line = lines[i]
+        # Format the dates
+        formatted_articles = []
+        for article in articles:
+            # Skip articles without required fields
+            if not article.get('title') or not article.get('url'):
+                continue
                 
-                # Extraire le titre, la date et l'URL
-                title_parts = title_line.split('https://')
-                if len(title_parts) > 1:
-                    title = title_parts[0].strip()
-                    url_date_part = 'https://' + title_parts[1]
-                    
-                    # Trouver la date (format ISO) dans la ligne
-                    date_match = re.search(r'(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z)', url_date_part)
-                    if date_match:
-                        date_str = date_match.group(1)
-                        # Convertir la date ISO en objet datetime
-                        date = datetime.fromisoformat(date_str.replace('Z', '+00:00'))
-                        formatted_date = date.strftime(DEFAULT_DATE_FORMAT)
-                        
-                        # Extraire l'URL (tout ce qui est avant la date)
-                        url = url_date_part.split(date_str)[0].strip()
-                        
-                        # Ligne paire: description
-                        description = lines[i + 1] if i + 1 < len(lines) else ""
-                        
-                        articles.append({
-                            "title": title,
-                            "url": url,
-                            "date": formatted_date,
-                            "summary": description
-                        })
+            # Format the date if present
+            formatted_date = ""
+            if article.get('date'):
+                try:
+                    # Handle ISO date format
+                    date = datetime.fromisoformat(article['date'].replace('Z', '+00:00'))
+                    formatted_date = date.strftime(DEFAULT_DATE_FORMAT)
+                except Exception as e:
+                    logging.error(f"Erreur lors du formatage de la date: {e}")
+                    formatted_date = article['date']
+            
+            # Add to formatted articles
+            formatted_articles.append({
+                "title": article.get('title', 'No Title'),
+                "url": article.get('url', ''),
+                "date": formatted_date,
+                "summary": article.get('summary', '')
+            })
         
-        logging.info(f"Nombre d'articles extraits: {len(articles)}")
-        
-        # Prendre les N premiers articles
-        return articles[:DEFAULT_N]
+        return formatted_articles[:DEFAULT_N]
         
     except requests.exceptions.RequestException as e:
         logging.error(f"Erreur lors de la récupération du flux: {e}")
         return []
+    except json.JSONDecodeError as e:
+        logging.error(f"Erreur lors du décodage JSON: {e}")
+        logging.error(f"Contenu de la réponse: {response.text[:200]}...")
+        return []
     except Exception as e:
-        logging.error(f"Erreur lors du traitement du flux: {e}")
+        logging.error(f"Erreur inattendue: {e}")
         return []
 
 def format_feed_entry(entry: dict[str, str]) -> str:
@@ -148,12 +135,6 @@ if __name__ == "__main__":
     # Vérifier si le contenu a changé
     if rewritten == readme_contents:
         logging.warning("Le contenu n'a pas été modifié après le remplacement.")
-        # Vérifier plus en détail
-        blog_start_idx = readme_contents.find("<!-- blog start -->")
-        blog_end_idx = readme_contents.find("<!-- blog end -->")
-        if blog_start_idx != -1 and blog_end_idx != -1:
-            current_content = readme_contents[blog_start_idx:blog_end_idx + len("<!-- blog end -->")]
-            logging.info(f"Contenu actuel entre les balises: {repr(current_content)}")
     else:
         logging.info("Le contenu a été modifié avec succès.")
     
