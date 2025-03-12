@@ -22,7 +22,6 @@ def fetch_feed(url: str) -> list[dict[str, str]]:
         content = response.text
         
         # Parser le contenu texte personnalisé
-        # Format attendu: titre - dateURL description
         articles = []
         lines = content.strip().split('\n')
         
@@ -33,7 +32,6 @@ def fetch_feed(url: str) -> list[dict[str, str]]:
                 title_line = lines[i]
                 
                 # Extraire le titre, la date et l'URL
-                # Format attendu: TITRE URL DATE
                 title_parts = title_line.split('https://')
                 if len(title_parts) > 1:
                     title = title_parts[0].strip()
@@ -74,9 +72,8 @@ def format_feed_entry(entry: dict[str, str]) -> str:
     title = entry.get("title", "No Title")
     link = entry.get("url", "")
     date = entry.get("date", "")
-    
-    # On inclut seulement le titre et la date pour un format plus compact
-    return f"* [{title}]({link}) - {date}"
+    summary = entry.get("summary", "")
+    return f"[{title}]({link}) - {date}\n{summary}"
 
 def replace_chunk(content, marker, chunk, inline=False):
     pattern = f"<!-- {marker} start -->.*<!-- {marker} end -->"
@@ -91,10 +88,7 @@ if __name__ == "__main__":
     readme = root / "README.md"
     url = "https://www.dix31.com/api/atoms"
     feeds = fetch_feed(url)
-    
-    # Créer une liste à puces pour les articles de blog
-    feeds_md = "\n".join([format_feed_entry(feed) for feed in feeds])
-    
+    feeds_md = "\n\n".join([format_feed_entry(feed) for feed in feeds])
     readme_contents = readme.read_text()
     rewritten = replace_chunk(readme_contents, "blog", feeds_md)
     readme.write_text(rewritten)
