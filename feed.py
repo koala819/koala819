@@ -45,7 +45,19 @@ def format_feed_entry(entry: dict[str, str]) -> str:
     link = entry.get("url", "")
     date = entry.get("date", "")
     summary = entry.get("summary", "")
-    return f"[{title}]({link}) - {date}\n{summary}"
+    
+    # S'assurer que les valeurs ne sont pas vides
+    if not title:
+        title = "No Title"
+    if not link:
+        link = "#"
+    if not date:
+        date = ""
+    if not summary:
+        summary = ""
+        
+    # Formater l'entrée en Markdown
+    return f"### [{title}]({link})\n*{date}*\n\n{summary}\n"
 
 def format_entry_date(entry: Any, date_format: str = DEFAULT_DATE_FORMAT) -> str:
     if hasattr(entry, "updated_parsed"):
@@ -65,55 +77,61 @@ def process_json_feed(json_content):
     """Process the JSON-like feed from your URL."""
     articles = []
     try:
-        # Parse the JSON-like format
-        lines = json_content.strip().split('\n')
-        current_article = {}
-        
-        for line in lines:
-            if line.startswith(('0', '1', '2', '3', '4')) and 'title' in line:
-                # New article starts
-                if current_article and 'title' in current_article:
-                    articles.append(current_article)
-                current_article = {}
+        # D'abord, supprimons la première ligne "donne" si elle existe
+        content = json_content.strip()
+        if content.startswith("donne"):
+            content = content[5:].strip()
+            
+        # Initialisons un index pour suivre les articles
+        article_index = 0
+        while True:
+            # Cherchons le début du prochain article
+            title_start = content.find(str(article_index) + 'title"')
+            if title_start == -1:
+                break
                 
-            if 'title' in line and '"' in line:
-                parts = line.split('title')
-                if len(parts) > 1:
-                    title_part = parts[1].strip()
-                    title = title_part.split('"')[1]
-                    current_article['title'] = title
+            # Créer un nouvel article
+            article = {}
             
-            if 'url' in line and '"' in line:
-                parts = line.split('url')
-                if len(parts) > 1:
-                    url_part = parts[1].strip()
-                    url = url_part.split('"')[1]
-                    current_article['url'] = url
+            # Extraire le titre
+            title_start = content.find('"', title_start) + 1
+            title_end = content.find('"', title_start)
+            article['title'] = content[title_start:title_end]
             
-            if 'date' in line and '"' in line:
-                parts = line.split('date')
-                if len(parts) > 1:
-                    date_part = parts[1].strip()
-                    date = date_part.split('"')[1]
-                    # Convert to desired format
-                    try:
-                        date_obj = datetime.fromisoformat(date.replace('Z', '+00:00'))
-                        current_article['date'] = date_obj.strftime(DEFAULT_DATE_FORMAT)
-                    except:
-                        current_article['date'] = date
+            # Extraire l'URL
+            url_start = content.find('url"', title_end) + 4
+            url_start = content.find('"', url_start) + 1
+            url_end = content.find('"', url_start)
+            article['url'] = content[url_start:url_end]
             
-            if 'summary' in line and '"' in line:
-                parts = line.split('summary')
-                if len(parts) > 1:
-                    summary_part = parts[1].strip()
-                    summary = summary_part.split('"')[1]
-                    current_article['summary'] = summary
-        
-        # Add the last article
-        if current_article and 'title' in current_article:
-            articles.append(current_article)
+            # Extraire la date
+            date_start = content.find('date"', url_end) + 5
+            date_start = content.find('"', date_start) + 1
+            date_end = content.find('"', date_start)
+            date_str = content[date_start:date_end]
+            try:
+                date_obj = datetime.fromisoformat(date_str.replace('Z', '+00:00'))
+                article['date'] = date_obj.strftime(DEFAULT_DATE_FORMAT)
+            except:
+                article['date'] = date_str
             
-        return articles[:DEFAULT_N]
+            # Extraire le résumé
+            summary_start = content.find('summary"', date_end) + 8
+            summary_start = content.find('"', summary_start) + 1
+            summary_end = content.find('"', summary_start)
+            article['summary'] = content[summary_start:summary_end]
+            
+            # Ajouter l'article à la liste
+            articles.append(article)
+            
+            # Passer à l'article suivant
+            article_index += 1
+            
+            # Limiter le nombre d'articles
+            if article_index >= DEFAULT_N:
+                break
+                
+        return articles
     except Exception as e:
         logging.error(f"Error processing JSON-like feed: {e}")
         return []
@@ -123,25 +141,46 @@ if __name__ == "__main__":
     url = "https://www.dix31.com/api/atoms"
     
     try:
+        # Configurer le logging pour voir les problèmes
+        logging.basicConfig(level=logging.DEBUG)
+        
         # Fetching the content as text rather than parsing as RSS
         response = requests.get(url)
         response.raise_for_status()
         content = response.text
         
+        # Log the first part of the content for debugging
+        logging.debug(f"Content preview: {content[:200]}")
+        
         # Process the custom JSON-like feed
         feeds = process_json_feed(content)
+        logging.info(f"Found {len(feeds)} articles")
         
         if not feeds:
             logging.warning("No feed entries found, trying regular feed parser")
             feeds = fetch_feed(url)
             
-        feeds_md = "\n\n".join([format_feed_entry(feed) for feed in feeds])
+        # Log the feed entries for debugging
+        for i, feed in enumerate(feeds):
+            logging.debug(f"Feed {i}: {feed}")
+            
+        # Format the feeds as markdown
+        feeds_md = "\n".join([format_feed_entry(feed) for feed in feeds])
         
+        # Make sure we have content to update
+        if not feeds_md.strip():
+            logging.error("No formatted content to update README with")
+            print("No content generated")
+            exit(1)
+            
         try:
+            logging.info(f"Updating README at {readme}")
             readme_contents = readme.read_text()
             rewritten = replace_chunk(readme_contents, "blog", feeds_md)
             readme.write_text(rewritten)
             print("README.md updated successfully")
+            # Print the formatted Markdown so it's visible in the action logs
+            print("\nGenerated content:\n" + feeds_md)
         except Exception as e:
             logging.error(f"Error updating README: {e}")
             # Print the feed content anyway
@@ -149,3 +188,5 @@ if __name__ == "__main__":
             
     except Exception as e:
         logging.error(f"Failed to fetch or process URL content: {e}")
+        import traceback
+        traceback.print_exc()
