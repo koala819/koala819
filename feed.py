@@ -4,7 +4,6 @@ import pathlib
 import requests
 import re
 from datetime import datetime
-import json
 
 DEFAULT_N = 5
 DEFAULT_DATE_FORMAT = "%Y-%m-%d"
@@ -75,8 +74,9 @@ def format_feed_entry(entry: dict[str, str]) -> str:
     title = entry.get("title", "No Title")
     link = entry.get("url", "")
     date = entry.get("date", "")
-    summary = entry.get("summary", "")
-    return f"[{title}]({link}) - {date}\n{summary}"
+    
+    # On inclut seulement le titre et la date pour un format plus compact
+    return f"* [{title}]({link}) - {date}"
 
 def replace_chunk(content, marker, chunk, inline=False):
     pattern = f"<!-- {marker} start -->.*<!-- {marker} end -->"
@@ -91,7 +91,10 @@ if __name__ == "__main__":
     readme = root / "README.md"
     url = "https://www.dix31.com/api/atoms"
     feeds = fetch_feed(url)
-    feeds_md = "\n\n".join([format_feed_entry(feed) for feed in feeds])
+    
+    # Créer une liste à puces pour les articles de blog
+    feeds_md = "\n".join([format_feed_entry(feed) for feed in feeds])
+    
     readme_contents = readme.read_text()
     rewritten = replace_chunk(readme_contents, "blog", feeds_md)
     readme.write_text(rewritten)
