@@ -15,6 +15,11 @@ Software developer at @FreeAndFun 👋
 
 
 <!-- blog start -->
+### [Find duplicates in Compass](https://www.dix31.com/en/blog/find-duplicates-in-compass-rechercher-des-doublons-dans-compass)
+*2024-11-26*
+
+Identify which users are most referenced in other collections by counting the number of times their _id is used in them
+
 ### [HATS Pack & NX Firmware](https://www.dix31.com/en/blog/hats-pack-and-nx-firmware-hats-pack-and-nx-firmware)
 *2024-11-22*
 
@@ -34,11 +39,6 @@ Windows 11 comes with a host of pre-installed applications and background servic
 *2024-10-28*
 
 Have you created a website and want to know what its environmental impact is? Use EcoIndex to measure your website's eco-design score
-
-### [Optimise VS Code: Essential settings and keyboard shortcuts](https://www.dix31.com/en/blog/optimise-vs-code-essential-settings-and-keyboard-shortcuts-optimisez-vs-code-parametres-et)
-*2024-10-23*
-
-
 
 <!-- blog end -->
 
