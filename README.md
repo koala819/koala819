@@ -15,6 +15,21 @@ Software developer at @FreeAndFun 👋
 
 
 <!-- blog start -->
+### [Rethinking Digital Sovereignty: A European Emergency](https://www.dix31.com/en/blog/undefined-repenser-la-souverainete-numerique-une-urgence-europeenne)
+*2025-02-28*
+
+Europe's digital dependence on the United States is alarming. It is crucial to integrate digital relocation into our reindustrialisation strategies.
+
+### [The future of the web in the face of AI: What role for content creators?](https://www.dix31.com/en/blog/the-future-of-the-web-in-the-face-of-ai-what-role-for-content-creators-l-avenir-du-web-face-aux)
+*2024-12-12*
+
+This article is a reflection on the evolution of the web and the place of independent content creators.
+
+### [WebP: The image format that will boost your website](https://www.dix31.com/en/blog/webp-the-image-format-that-will-boost-your-website-webp-le-format-d-image-qui-va-booster-votre)
+*2024-12-03*
+
+Tired of images slowing down your website? Discover WebP, a simple but powerful solution for faster web pages!
+
 ### [Find duplicates in Compass](https://www.dix31.com/en/blog/find-duplicates-in-compass-rechercher-des-doublons-dans-compass)
 *2024-11-26*
 
@@ -24,21 +39,6 @@ Identify which users are most referenced in other collections by counting the nu
 *2024-11-22*
 
 This pack includes several components, which is the latest version of Hekate, Atmosphere, Tinfoil and Signature patches and some payloads like the latest version of Lockpick_RCM, and Tegraexplorer along with its Scripts. This pack also contains the SX Gear 1.1 Boot.dat file.
-
-### [Husky add rules for your commits](https://www.dix31.com/en/blog/husky-add-rules-for-your-commits-husky-ajouter-des-regles-pour-vos-commit)
-*2024-11-11*
-
-Husky is a tool that lets you add Git hooks to run scripts for commit checks before certain Git actions (commit, push, merge, etc.).
-
-### [Debloat Windows 11](https://www.dix31.com/en/blog/debloat-windows-11-debloat-windows-11)
-*2024-11-06*
-
-Windows 11 comes with a host of pre-installed applications and background services that are often unnecessary. These programs, known as ‘bloatware’, slow down your system. Win11Debloat, a simple and effective PowerShell script that removes unwanted software, disables telemetry and optimises the interface in just a few clicks.
-
-### [Measure the environmental impact of your website](https://www.dix31.com/en/blog/measure-the-environmental-impact-of-your-website-mesurez-l-impact-environnemental-de-votre-site)
-*2024-10-28*
-
-Have you created a website and want to know what its environmental impact is? Use EcoIndex to measure your website's eco-design score
 
 <!-- blog end -->
 
