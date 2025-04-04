@@ -15,30 +15,30 @@ Software developer at @FreeAndFun 👋
 
 
 <!-- blog start -->
+### [AI Revolutionises Shopping in France: How to Adapt Your Web Presence](https://www.dix31.com/en/blog/ai-revolutionises-shopping-in-france-how-to-adapt-your-web-presence-l-ia-revolutionne-le)
+*2025-03-19*
+
+Have you noticed how your last shopping session has subtly changed over the last few months? Those strangely relevant recommendations, that ease of comparing prices, that impression that the site anticipates your needs... It's no coincidence. Artificial intelligence is radically transforming the way we shop, often without us even realising it. In this article, I reveal the unsuspected scale of this revolution and, above all, how your company can take advantage of it to stand out in an increasingly competitive market.
+
+### [Spoofing protection: a challenge for your web interfaces](https://www.dix31.com/en/blog/spoofing-protection-a-challenge-for-your-web-interfaces-protection-contre-le-spoofing-un-enjeu)
+*2025-03-10*
+
+Telephone spoofing is a fast-growing scam technique in which fraudsters manipulate the display of the call number to impersonate legitimate organisations (banks, police, public services).
+
 ### [Rethinking Digital Sovereignty: A European Emergency](https://www.dix31.com/en/blog/undefined-repenser-la-souverainete-numerique-une-urgence-europeenne)
 *2025-02-28*
 
 Europe's digital dependence on the United States is alarming. It is crucial to integrate digital relocation into our reindustrialisation strategies.
 
-### [The future of the web in the face of AI: What role for content creators?](https://www.dix31.com/en/blog/the-future-of-the-web-in-the-face-of-ai-what-role-for-content-creators-l-avenir-du-web-face-aux)
-*2024-12-12*
+### [shadPS4 PS4 Emulator](https://www.dix31.com/en/blog/shadps4-ps4-emulator-shadps4-emulateur-ps4)
+*2025-02-16*
 
-This article is a reflection on the evolution of the web and the place of independent content creators.
+A brand new emulator that promises to run your favourite PS4 games directly on your computer.
 
-### [WebP: The image format that will boost your website](https://www.dix31.com/en/blog/webp-the-image-format-that-will-boost-your-website-webp-le-format-d-image-qui-va-booster-votre)
-*2024-12-03*
+### [Ollama on my LAN](https://www.dix31.com/en/blog/ollama-on-my-lan-ollama-sur-mon-lan)
+*2024-12-24*
 
-Tired of images slowing down your website? Discover WebP, a simple but powerful solution for faster web pages!
-
-### [Find duplicates in Compass](https://www.dix31.com/en/blog/find-duplicates-in-compass-rechercher-des-doublons-dans-compass)
-*2024-11-26*
-
-Identify which users are most referenced in other collections by counting the number of times their _id is used in them
-
-### [HATS Pack & NX Firmware](https://www.dix31.com/en/blog/hats-pack-and-nx-firmware-hats-pack-and-nx-firmware)
-*2024-11-22*
-
-This pack includes several components, which is the latest version of Hekate, Atmosphere, Tinfoil and Signature patches and some payloads like the latest version of Lockpick_RCM, and Tegraexplorer along with its Scripts. This pack also contains the SX Gear 1.1 Boot.dat file.
+Modification of the service so that it uses network interfaces to enable use of the Ollama API on the local network.
 
 <!-- blog end -->
 
