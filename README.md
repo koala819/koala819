@@ -30,5 +30,5 @@ Status  : Compiling new ideas...
 ```
 
 <h3 align="left">&gt; execute skills_matrix.exe</h3> <p align="left"> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=000" /> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" /> <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=000" /> <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" /> <img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white" /> <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=000" /> </p>
-<details> <summary><b>📊 System Telemetry (click to expand)</b></summary> <img src="github-metrics.svg" alt="GitHub Metrics" /> </details>
+<details> <summary><b>📊 System Telemetry (click to expand)</b></summary> <img src="https://raw.githubusercontent.com/koala819/koala819/main/github-metrics.svg" alt="GitHub Metrics" /> </details>
 <div align="center"> <p><i>Connect with me via secure shell:</i></p> <a href="https://www.linkedin.com/in/xavier-genolhac/"> <img src="https://img.shields.io/badge/LinkedIn-0077b5?style=for-the-badge&logo=linkedin&logoColor=white" /> </a> </div>
